@@ -1,0 +1,48 @@
+### 解题思路
+
+小白第一次写题解；
+首先清除字符串前面的空格，此步的目的是之后倒叙遍历字符串时结尾处肯定是字符；
+当清除前面的空格后 记录下该位置即start 实际是倒叙遍历的结尾；
+倒序遍历字符串并分离出单词 此处用到的是双指针
+定义两个指针 i，j;
+i保存单词起始端（实际i存的是单词起始端前的空格位置 i+1才是单词起始端）
+j记录单词尾端
+使用substring()分离单词 此处注意substring方法中 endindex是不包含的所以用的j+1；
+将分离的单词添加到result中 并在单词后添加空格（此处判断如果是第一个单词就不用添加空格了）
+
+运行3ms Java击败95%
+
+### 代码
+
+* java
+
+```java
+class Solution {
+    public String reverseWords(String s) {
+        StringBuilder res = new StringBuilder();
+        int start = 0 ;
+        // 去除前面的空格
+        while(s.charAt(start)==' ') start++;
+        int len = s.length();
+        // 从后往前遍历字符串 定义i，j j记录单词末尾 i为单词起始
+        for(int i=len-1 ; i>=start ; i--){
+            // 当遍历字符是空格时i,j 同步向前移动，j保存第一个不为空格的字符
+            int j = i;
+            // 当i位置不为空格时，i继续向前移动知道遇到空格
+            while(i>=0 && s.charAt(i)!=' '){
+                i--;
+            }
+            // 若i！=j 此时i代表单词首个字母前一个空格 j为单词末尾
+            if(i!=j){
+                res.append(s.substring(i+1,j+1)); // substring endindex 不包括j+1；
+                // 第一个单词前都加空格
+                if(i>start){
+                    res.append(' ');
+                }
+            }
+        }
+        return res.toString();
+    }
+}
+```
+
