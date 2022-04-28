@@ -3,6 +3,7 @@ package leetcode.editor.cn;
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
+<<<<<<< HEAD
  * int val;
  * TreeNode left;
  * TreeNode right;
@@ -61,6 +62,28 @@ class Solution {
             }
         }
         return resList.stream().mapToInt(Integer::intValue).toArray();
+=======
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode() {}
+ *     TreeNode(int val) { this.val = val; }
+ *     TreeNode(int val, TreeNode left, TreeNode right) {
+ *         this.val = val;
+ *         this.left = left;
+ *         this.right = right;
+ *     }
+ * }
+ */
+
+/**
+ * 思路：
+ * 1. 遍历二叉树，统计每个出现的字符的频率
+ */
+class Solution {
+    public int[] findMode(TreeNode root) {
+
+>>>>>>> 73cd44600e20db7c578822c7063e5f8e6beff0bf
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
