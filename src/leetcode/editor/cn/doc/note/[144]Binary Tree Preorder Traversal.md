@@ -3,23 +3,29 @@ ideas:
 1. Put num into *Arraylist* for returning.
 
 code:
+
 ```java
 package leetcode.editor.cn;
 //leetcode submit region begin(Prohibit modification and deletion)
+
+import leetcode.editor.cn.nodebugger.TreeNode;
+
 import java.util.ArrayList;
 import java.util.List;
+
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
-        List<Integer> res=new ArrayList<>();
-        preorder(root,res);
+        List<Integer> res = new ArrayList<>();
+        preorder(root, res);
         return res;
     }
-    public void preorder(TreeNode cur,List<Integer> res){
-        if(cur==null)
-            return ;
+
+    public void preorder(TreeNode cur, List<Integer> res) {
+        if (cur == null)
+            return;
         res.add(cur.val);
-        preorder(cur.left,res);
-        preorder(cur.right,res);
+        preorder(cur.left, res);
+        preorder(cur.right, res);
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
